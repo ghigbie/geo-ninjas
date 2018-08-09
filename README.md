@@ -1,6 +1,6 @@
 # geo-ninjas
 
-> A Vue.js project
+> A Vue.js project that uses geolocation and firebase authentication.
 
 ## Build Setup
 
