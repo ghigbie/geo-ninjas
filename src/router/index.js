@@ -11,8 +11,5 @@ export default new Router({
       name: 'GMap',
       component: GMap
     },
-    {
-
-    }
   ]
 })
