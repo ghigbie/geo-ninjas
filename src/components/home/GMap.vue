@@ -16,18 +16,28 @@ export default {
     methods:{
         renderMap(){
             const map = new google.maps.Map(document.getElementById('map'),{
-                center: {lat: this.lat, lng: this.lng}
+                center: {lat: this.lat, lng: this.lng},
+                zoom: 6,
+                maxZoom: 15,
+                minZoom: 3,
+                streetViewControl: false
             });
-
         }
     },
     mounted(){
-        renderMap();
+        this.renderMap();
     }
 }
 </script>
 
-
 <style scoped>
+.google-map{
+    width: 100vh;
+    height: 100%;
+    margin: 0 auto;
+    background: #fff;
+    position: absolute;
+    top: 0;
+}
 
 </style>
