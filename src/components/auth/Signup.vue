@@ -1,6 +1,16 @@
 <template>
-    <div class="signup">
-        <h1>Signup</h1>
+    <div class="signup container">
+        <form class="card-panel">
+            <h2 class="center deep-purple-text">Signup</h2>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" />
+            </div>
+            <div class="field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" />
+            </div>
+        </form>
     </div>
 
 </template>
