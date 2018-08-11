@@ -15,6 +15,8 @@
                        name="password"
                        v-model="password"/>
             </div>
+            <p class="red-text center"
+               v-if="feedback">{{ feedback }}</p>
             <div class="field">
                 <button class="btn deep-purple">Login</button>
             </div>
@@ -28,12 +30,16 @@ export default {
     name: 'Login',
     data(){
         return {
-
+            email: null,
+            password: null,
+            feedback: null
         }
     },
     methods: {
         login(){
             console.log('login method called');
+            console.log(this.email);
+            console.log(this.password);
         }
     }
 }
