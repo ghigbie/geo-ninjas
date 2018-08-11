@@ -1,6 +1,7 @@
 <template>
     <div class="login container">
-        <form class="card-panel">
+        <form class="card-panel"
+              @submit.prevent="login">
             <h2 class="center deep-purple-text">Login</h2>
             <div class="field">
                 <label for="email">Email:</label>
@@ -14,6 +15,9 @@
                        name="password"
                        v-model="password"/>
             </div>
+            <div class="field">
+                <button class="btn deep-purple">Login</button>
+            </div>
         </form>
     </div>
 </template>
@@ -25,6 +29,11 @@ export default {
     data(){
         return {
 
+        }
+    },
+    methods: {
+        login(){
+            console.log('login method called');
         }
     }
 }
