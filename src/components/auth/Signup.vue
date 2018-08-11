@@ -21,6 +21,8 @@
                        name="alias" 
                        v-model="alias"/>
             </div>
+            <p class="red-text center"
+               v-if="feedback">{{ alias }}</p>
             <div class="field center">
                 <button class="btn deep-purple">Submit</button>
             </div>
