@@ -6,6 +6,7 @@
                 <ul class="right">
                     <li><router-link :to="{ name: 'Signup' }">Signup</router-link></li>
                     <li><a href="">Login</a></li>
+                    <li><a @click="logout">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -19,6 +20,11 @@ export default {
     data(){
         return{
 
+        }
+    },
+    methods:{
+        logout(){
+            console.log('logout called');
         }
     }
 }
