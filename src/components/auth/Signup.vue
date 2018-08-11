@@ -59,7 +59,7 @@ export default {
                 let ref = db.collection('users').doc(this.slug)
                 ref.get().then(doc => {
                     if(doc.exists){
-                        this.feedback = 'This alias alread exists. Please choose another';
+                        this.feedback = 'This alias already exists. Please choose another';
                     }else{
                         firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
                         .catch(err => {
