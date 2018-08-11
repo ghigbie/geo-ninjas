@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <div class="deep-purple darken-1">
+        <nav class="deep-purple darken-1">
             <div class="container">
                 <a href="" class="brand-logo left">GeoNinjas!</a>
                 <ul class="right">
@@ -8,7 +8,7 @@
                     <li><a href="">Login</a></li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </div>
 </template>
 
