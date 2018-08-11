@@ -15,6 +15,8 @@
 
 
 <script>
+import firebase from 'firebase'
+
 export default {
     name: 'Navbar',
     data(){
@@ -25,6 +27,9 @@ export default {
     methods:{
         logout(){
             console.log('logout called');
+            firebase.auth().signOut().then(() => {
+                this.$router.push({ name: 'Signup'});
+            });
         }
     }
 }
