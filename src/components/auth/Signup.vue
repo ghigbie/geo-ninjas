@@ -1,7 +1,7 @@
 <template>
     <div class="signup container">
         <form class="card-panel"
-              @submit.prevent="singup">
+              @submit.prevent="signup">
             <h2 class="center deep-purple-text">Signup</h2>
             <div class="field">
                 <label for="email">Email:</label>
@@ -22,7 +22,7 @@
                        v-model="alias"/>
             </div>
             <p class="red-text center"
-               v-if="feedback">{{ alias }}</p>
+               v-if="feedback">{{ feedback }}</p>
             <div class="field center">
                 <button class="btn deep-purple">Submit</button>
             </div>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import slugify from 'slugify';
+
 export default {
     name: 'Signup',
     data(){
@@ -39,13 +41,19 @@ export default {
             email: null,
             password: null,
             alias: null,
-            feedback: null
+            feedback: null,
+            slug: null
         };
     },
     methods: {
         signup(){
-            if(this.aliass){
-
+            if(this.alias){
+                this.slug = slugify(this.alias, {
+                    replacement: '-',
+                    remove: /[$*_+~.()'"!\-:@]/g,
+                    lower: true
+                });
+                console.log(this.slug);
             }else{
                 this.feedback = 'We use the alias to verify your identity. Please enter an alias : )'
             }
