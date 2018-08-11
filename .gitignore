@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 init.js
 apiKey.js
-index.html
+index-real.html
 
 # Editor directories and files
 .idea
