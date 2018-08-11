@@ -8,7 +8,7 @@ import firebase from 'firebase'
 Vue.config.productionTip = false
 let app = null; //this is it test to see if app is null
 /* eslint-disable no-new */
-firebase.autho().onAuthStateChange(() => {
+firebase.auth().onAuthStateChanged(() => {
   //init if app is not already created
   if(!app){ // if the app is not null, then app is defind by vue
     app = new Vue({
