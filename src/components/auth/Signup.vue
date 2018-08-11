@@ -1,7 +1,7 @@
 <template>
     <div class="signup container">
         <form class="card-panel"
-              @submit.prevent="doSomething">
+              @submit.prevent="singup">
             <h2 class="center deep-purple-text">Signup</h2>
             <div class="field">
                 <label for="email">Email:</label>
@@ -36,8 +36,18 @@ export default {
         return {
             email: null,
             password: null,
-            alias: null
+            alias: null,
+            feedback: null
         };
+    },
+    methods: {
+        signup(){
+            if(this.aliass){
+
+            }else{
+                this.feedback = 'We use the alias to verify your identity. Please enter an alias : )'
+            }
+        }   
     }
 }
 </script>
