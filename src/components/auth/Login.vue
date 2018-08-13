@@ -26,6 +26,8 @@
 
 
 <script>
+import firebase from 'firebase';
+
 export default {
     name: 'Login',
     data(){
@@ -42,7 +44,8 @@ export default {
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password)
                 .then(user => {
                     console.log(user);
-                }).cath(err => {
+                    this.$router.push({ name: 'GMap' });
+                }).catch(err => {
                     this.feedback = err.message;
                 });
                 this.feedback = null
