@@ -31,12 +31,20 @@ export default {
                     this.lat = pos.coords.latitude;
                     this.lng = pos.coords.longitude;
                     this.renderMap();
-                });
+                }, (err) => {
+                    console.log(err);
+                    this.renderMap();
+                }, { maximumAge: 6000, timeout: 3000});
+            }else{
+                // positon center by default values
+                this.renderMap();
             }
+
         },
     },
     mounted(){
-        this.renderMap();
+        this.getUserLocation();
+        //this.renderMap();
         console.log(firebase.auth().currentUser);
     }
 }
