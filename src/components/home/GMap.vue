@@ -24,7 +24,16 @@ export default {
                 minZoom: 3,
                 streetViewControl: false
             });
-        }
+        },
+        getUserLocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(pos => {
+                    this.lat = pos.coords.latitude;
+                    this.lng = pos.coords.longitude;
+                    this.renderMap();
+                });
+            }
+        },
     },
     mounted(){
         this.renderMap();
