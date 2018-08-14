@@ -5,6 +5,7 @@ import Signup from '@/components/auth/Signup';
 import Login from '@/components/auth/Login';
 
 Vue.use(Router)
+import firebase from 'firebase';
 
 const router = new Router({
   mode: 'history',
@@ -32,7 +33,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   //check to see if route requires auth
-  if(to/matched.some(rec => rec.meta.requiresAuth)){  
+  if(to.matched.some(rec => rec.meta.requiresAuth)){  
     //check auth state of user
     let user = firebase.auth.currentUser;
     if(user){
