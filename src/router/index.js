@@ -12,7 +12,10 @@ export default new Router({
     {
       path: '/',
       name: 'GMap',
-      component: GMap
+      component: GMap,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: '/Signup',
