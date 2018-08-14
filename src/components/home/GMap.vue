@@ -6,6 +6,7 @@
 
 <script>
 import firebase from 'firebase';
+import db from '@/firebase/init';
 
 export default {
     name: 'GMap',
@@ -30,7 +31,22 @@ export default {
                 navigator.geolocation.getCurrentPosition(pos => {
                     this.lat = pos.coords.latitude;
                     this.lng = pos.coords.longitude;
-                    this.renderMap();
+
+                    //find the user record and then update geocords
+                    db.collection('users').where('user__id', '==', 'user.uid').get()
+                    .then(snapshot => {
+                        snapshot.forEach((doc) => {
+                            console.log(doc.id);
+                            db.collection('users').doc(doc.id).update({
+                                geolocation: {
+                                    lat: pos.coords.latitude,
+                                    lng: pos.coords.longitude
+                                }
+                            })
+                        });
+                    }).then(() => {
+                        this.renderMap();
+                    });
                 }, (err) => {
                     console.log(err);
                     this.renderMap();
