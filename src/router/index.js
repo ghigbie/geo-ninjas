@@ -6,7 +6,7 @@ import Login from '@/components/auth/Login';
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -28,4 +28,20 @@ export default new Router({
       component: Login
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  //check to see if route requires auth
+  if(to/matched.some(rec => rec.meta.requiresAuth)){  
+    //check auth state of user
+    let user = firebase.auth.currentUser;
+    if(user){
+      next(); //now the user is signed in, he can proceed to route
+    }else{}
+      next({ name: 'Login' });
+  }else{
+    next();
+  }
+});
+
+export default router;
