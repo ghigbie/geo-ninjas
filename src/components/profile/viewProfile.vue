@@ -1,7 +1,7 @@
 <template>
     <div class="view-profile container">
-        <div class="card">
-            <h2 class="deep-purple-text center">User's Wall</h2>
+        <div v-if="profile" class="card">
+            <h2 class="deep-purple-text center">{{ profile.alias }}'s Wall</h2>
         </div>
     </div>
 </template>
@@ -17,7 +17,11 @@ export default {
         }
     },
     created(){
-        let ref = db.collection('users')
+        let ref = db.collection('users');
+        ref.doc(this.$rout.params.id).get()
+        .then(user => {
+            this.profile = user.data();
+        });
     }
 }
 </script>
