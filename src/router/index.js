@@ -38,8 +38,9 @@ router.beforeEach((to, from, next) => {
     let user = firebase.auth().currentUser;
     if(user){
       next(); //now the user is signed in, he can proceed to route
-    }else{}
+    }else{
       next({ name: 'Login' });
+    }
   }else{
     next();
   }
