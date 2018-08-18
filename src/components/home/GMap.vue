@@ -25,7 +25,7 @@ export default {
                 minZoom: 3,
                 streetViewControl: false
             });
-            db.collection('users').get().then(ussers => {
+            db.collection('users').get().then(users => {
                 users.docs.forEach(doc => {
                     let data = doc.data();
                     if(data.geolocation){
@@ -35,7 +35,11 @@ export default {
                                 lng: data.geolocation.lng
                             },
                             map: map
-                        })
+                        });
+                        //add click event to marker
+                        marker.addListener('click', () =>{
+                         console.log(doc.id);
+                        });
                     }
                 })
             });
