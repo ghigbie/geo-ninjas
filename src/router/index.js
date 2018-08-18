@@ -32,9 +32,9 @@ const router = new Router({
       path: '/profile/:id',
       name: 'ViewProfile',
       component: ViewProfile,
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // }
     }
   ]
 });

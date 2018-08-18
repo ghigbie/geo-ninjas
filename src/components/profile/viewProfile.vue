@@ -18,7 +18,7 @@ export default {
     },
     created(){
         let ref = db.collection('users');
-        ref.doc(this.$rout.params.id).get()
+        ref.doc(this.$route.params.id).get()
         .then(user => {
             this.profile = user.data();
         });
