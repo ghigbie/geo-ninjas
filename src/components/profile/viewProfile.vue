@@ -12,6 +12,9 @@ export default {
         return{
             profile: null
         }
+    },
+    created(){
+        
     }
 }
 </script>
