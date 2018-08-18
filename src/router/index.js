@@ -35,7 +35,7 @@ router.beforeEach((to, from, next) => {
   //check to see if route requires auth
   if(to.matched.some(rec => rec.meta.requiresAuth)){  
     //check auth state of user
-    let user = firebase.auth.currentUser;
+    let user = firebase.auth().currentUser;
     if(user){
       next(); //now the user is signed in, he can proceed to route
     }else{}
