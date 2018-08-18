@@ -22,27 +22,23 @@ export default {
     name: 'Navbar',
     data(){
         return{
-
+            user: null
         }
     },
     methods:{
         logout(){
-            if(this.email && this.password){
-                firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-                .then(user => {
-                    console.log(user);
-                }).cath(err => {
-                    this.feedback = err.message;
-                });
-                this.feedback = null
-            }else{
-                this.feedback = 'Please fill in the email and password fields : )'
-            }
             console.log('logout called');
             firebase.auth().signOut().then(() => {
                 this.$router.push({ name: 'Login'});
             });
         }
+    },
+    created(){
+        firebase.auth().onAuthStateChanged((user) => {
+            if(user){
+                this.user = user;
+            }
+        })
     }
 }
 </script>
